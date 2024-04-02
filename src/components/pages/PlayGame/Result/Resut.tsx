@@ -29,7 +29,7 @@ export default function Resut() {
         ))}
       </div>
       <div>
-        <button className="btn" onClick={() => next()}>{currentLevel !== levels.length - 1 ? "Следующий уровень" : "Финиш"}</button>
+        <button className="btn" onClick={() => next()}>{currentLevel < levels.length - 1 ? "Следующий уровень" : "Финиш"}</button>
       </div>
     </div>
   );

@@ -9,7 +9,7 @@ import PlayGame from "../pages/PlayGame/PlayGame";
 import FinishGame from "../pages/FinishGame/FinishGame";
 
 export default function Game() {
-  const { players, status, currentLevel } = useAppSelector(
+  const { players, status } = useAppSelector(
     (state) => state.game
   );
   const dispatch = useAppDispatch();
@@ -27,7 +27,7 @@ export default function Game() {
   ) : status === "start" ? (
     <StartGame />
   ) : status === "play" ? (
-    <PlayGame level={currentLevel}/>
+    <PlayGame />
   ) : status === "finish" ? (
     <FinishGame/>
   ) : (

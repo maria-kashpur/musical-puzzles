@@ -46,7 +46,7 @@ const gameSlice = createSlice({
     },
 
     nextLevel(state) {
-      if (state.currentLevel !== state.levels.length - 1) {
+      if (state.currentLevel < state.levels.length - 1) {
         state.currentLevel = state.currentLevel + 1;
       }
     },

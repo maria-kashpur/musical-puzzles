@@ -11,11 +11,9 @@ export default function Player({title}: Props) {
   const { currentLevel, players } = useAppSelector((state) => state.game);
   const dispatch = useAppDispatch();
   const [isWin, setIsWin] = useState(false);
-  const [range, setRange] = useState(0)
 
   useEffect(() => {
     setIsWin(players[title].includes(currentLevel));
-    setRange(players[title].length);
   })
 
   const toggleRange = () => {

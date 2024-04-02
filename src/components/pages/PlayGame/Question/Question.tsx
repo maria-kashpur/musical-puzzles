@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import s from "./question.module.scss";
 import HelpIco from "@assets/icons/9165754_question_help_icon.svg?react";
 import db from "@/assets/db/musical-puzzles";
