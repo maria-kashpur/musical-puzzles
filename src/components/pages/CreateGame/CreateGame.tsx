@@ -23,8 +23,10 @@ export default function CreateGame() {
 
   const createPlayer = () => {
     if (newPlayer.trim() !== "") {
-      setPlayers((p) => [...p, newPlayer]);
-      setNewPlayer("");
+      if(!players.includes(newPlayer)) {
+        setPlayers((p) => [...p, newPlayer]);
+        setNewPlayer("");
+      }
     }
   }
 
@@ -56,8 +58,8 @@ export default function CreateGame() {
   }
 
   return (
-    <section className={s.start}>
-      <h2 className={s.title}>Добавьте команду или игрока:</h2>
+    <section className="game">
+      <h2 className="title">Добавьте команду или игрока:</h2>
       <div className={s.add_player}>
         <input
           type="text"
@@ -73,7 +75,7 @@ export default function CreateGame() {
       <ul className={s.players}>
         {players.map((player, index) => (
           <li key={index} className={s.player}>
-            <div>{player}</div>
+            <div className={s.player__title}>{player}</div>
             <div className={s.players__control}>
               <button className={s.btn} onClick={() => deletePlayer(index)}>
                 <DeleteIco height={20} />

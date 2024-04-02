@@ -4,7 +4,7 @@ import WinIco from '@assets/icons/416372_champion_cup_sports_winner_icon.svg?rea
 import { newGame } from '@/utils/store/reducers/gameSlice';
 
 export default function FinishGame() {
-  const { currentLevel, players, levels, status } = useAppSelector(
+  const { players } = useAppSelector(
     (state) => state.game
   );
   const dispatch = useAppDispatch();
@@ -22,18 +22,18 @@ export default function FinishGame() {
 
 
   return (
-    <section className={s.finish}>
-      <h2 className={s.title}>Результаты игры:</h2>
+    <section className="game">
+      <h2 className="title">Результаты игры:</h2>
       <div className={s.result}>
         {results.map((el) => (
           <div key={el[0]} className={s.result__item}>
             <span className={s.player}>{el[0]}:</span>
             <span>{el[1]}</span>
-            <span>{el[1] === maxResult ? <WinIco height={50} /> : ""}</span>
+            <span>{el[1] === maxResult && maxResult > 0 ? <WinIco height={50} /> : ""}</span>
           </div>
         ))}
       </div>
-      <div onClick={() => dispatch(newGame())} className={s.btn}>Новая игра</div>
+      <div onClick={() => dispatch(newGame())} className="btn">Новая игра</div>
     </section>
   );
 }

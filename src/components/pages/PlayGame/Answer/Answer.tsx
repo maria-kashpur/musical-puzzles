@@ -9,9 +9,10 @@ export default function Answer() {
   );
   return (
     <div className={s.answer}>
-      <h2>{db[currentLevel].answer.title}</h2>
+      <h2 className="title">{db[currentLevel].answer.title}</h2>
       <video
         src={db[currentLevel].answer.source}
+        className={s.video}
         controls
         width="600"
         ></video>

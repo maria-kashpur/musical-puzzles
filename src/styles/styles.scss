@@ -1,6 +1,8 @@
 @import './normalize.scss';
 @import './variables.scss';
 @import './fonts.scss';
+@import './header_footer';
+@import './game.scss';
 
 $font-family-main: "Balsamiq Sans", sans-serif;;
 
@@ -89,21 +91,4 @@ main {
   box-sizing: border-box;
   width: 100%;
   padding: 5px;
-}
-
-.logo {
-  display: inline-flex;
-  align-items: center;
-  text-align: center;
-  font-size: 1.2rem;
-  gap: 10px;
-}
-h1 {
-  background-color: #2aa5a0;
-  background-image: linear-gradient(90deg, #e9ff9f, #fc0076, #f9ff9f);
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  text-shadow: 3px -2px 5px #ffffff3c;
-  -webkit-text-stroke: 1px #ffffff;
 }

@@ -22,14 +22,14 @@ export default function Resut() {
 
   return (
     <div className={s.players}>
-      <h2 className={s.title}>Подсчет результатов:</h2>
+      <h2 className="title">Подсчет результатов:</h2>
       <div className={s.statistic}>
         {Object.entries(players).map((el) => (
           <Player key={el[0]} title={el[0]} />
         ))}
       </div>
       <div>
-        <button onClick={() => next()}>{currentLevel !== levels.length - 1 ? "Следующий уровень" : "Финиш"}</button>
+        <button className="btn" onClick={() => next()}>{currentLevel !== levels.length - 1 ? "Следующий уровень" : "Финиш"}</button>
       </div>
     </div>
   );

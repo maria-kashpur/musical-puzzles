@@ -2,7 +2,7 @@ import { useState } from "react";
 import s from "./question.module.scss";
 import HelpIco from "@assets/icons/9165754_question_help_icon.svg?react";
 import db from "@/assets/db/musical-puzzles";
-import useTimer from "@/components/hooks/useTimer";
+import useTimer from "@/hooks/useTimer";
 import PauseIco from "@assets/icons/3671827_outline_pause_icon.svg?react";
 import SoundOnIco from "@assets/icons/9111242_volume_high_icon.svg?react";
 import SoundOffIco from "@assets/icons/9111135_volume_off_icon.svg?react";
@@ -47,7 +47,7 @@ export default function Question() {
         </div>
 
         <div className={`${s.time} ${value < 4 ? s.red : ""}`}>
-          {value === 0 ? <AlarmIco height={150} /> : value}
+          {value === 0 ? <AlarmIco height={100} /> : value}
         </div>
       </div>
 

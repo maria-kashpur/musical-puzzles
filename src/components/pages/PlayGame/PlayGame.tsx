@@ -5,7 +5,6 @@ import Slider from '@/components/Slider/Slider';
 
 export default function PlayGame() {
   return (
-    <section className="section">
       <Slider
         amountSlides={3}
         content={[
@@ -13,6 +12,5 @@ export default function PlayGame() {
           <Answer />,
           <Resut />,
         ]}></Slider>
-    </section>
   );
 }
