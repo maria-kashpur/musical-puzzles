@@ -1,0 +1,24 @@
+.player {
+  display: flex;
+  gap: 5px;
+}
+
+.range{
+  width: 200px;
+  border: 1px solid white;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.status {
+  background-color: rgba(53, 241, 241, 0.618);
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+}

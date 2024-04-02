@@ -1,0 +1,33 @@
+.status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  max-width: 100%;
+}
+
+.status_item {
+  background-color: rgb(255, 255, 255);
+  height: 10px;
+  width: 300px;
+  border-radius: 30px;
+  position: relative;
+  overflow: hidden;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: rgb(0, 255, 123);
+    transition: all 0.5s ease;
+  }
+  &.active {
+    &::before {
+      width: 100%;
+      transition: all 0.5s ease;
+    }
+  }
+  
+}

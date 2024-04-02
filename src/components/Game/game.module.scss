@@ -1,0 +1,41 @@
+.start {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  min-width: 150px;
+  min-height: 80px;
+  background-color: black;
+  border-radius: 10px;
+  font-size: 1.4rem;
+  padding: 10px;
+  box-shadow: 3px 3px 10px rgb(0, 0, 0);
+  text-transform: uppercase;
+  &:hover {
+    box-shadow: 3px 3px 10px rgb(253, 255, 154);
+    color: rgb(229, 255, 32);
+  }
+}
+
+
+
+
+
+
+.satting {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.time {
+  display: flex;
+  align-items: center;
+
+}
+
