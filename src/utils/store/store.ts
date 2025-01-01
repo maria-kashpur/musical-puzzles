@@ -12,9 +12,11 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import gameReducer from "./reducers/gameSlice";
+import controlReducer from  "./reducers/controlGameSlice";
 
 const rootReducer = combineReducers({
   game: gameReducer,
+  control: controlReducer,
 });
 
 const persistConfig = {

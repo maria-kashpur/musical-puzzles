@@ -10,9 +10,8 @@ import StartIco from "@assets/icons/8680147_play_circle_video_icon.svg?react";
 import AlarmIco from "@assets/icons/alarm-clock-154665.svg?react";
 import { useAppSelector } from "@/utils/store/store";
 
-
 export default function Question() {
-  const { currentLevel } = useAppSelector(
+  const { currentIndexOfLevel: currentLevel } = useAppSelector(
     (state) => state.game
   );
 

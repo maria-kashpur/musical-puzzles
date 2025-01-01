@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import SliderArr from "@assets/icons/211607_right_arrow_icon.svg?react";
 import Status from "../Status/Status";
-import s from "./slider.module.scss"
+import s from "./slider.module.scss";
 import { useAppSelector } from "@/utils/store/store";
 
 interface Props {
@@ -11,11 +11,13 @@ interface Props {
 
 export default function Slider({ amountSlides, content }: Props) {
   const [currentSlide, setCurrentSlide] = useState(1);
-  const { currentLevel } = useAppSelector((state) => state.game);
+  const { currentIndexOfLevel: currentLevel } = useAppSelector(
+    (state) => state.game
+  );
 
   useEffect(() => {
-    setCurrentSlide(1)
-  }, [currentLevel])
+    setCurrentSlide(1);
+  }, [currentLevel]);
 
   function next() {
     if (currentSlide < amountSlides) {

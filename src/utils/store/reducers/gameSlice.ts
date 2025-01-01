@@ -1,5 +1,4 @@
-import musicalPazzles from "@/assets/db/musical-puzzles";
-import shuffleArray from "@/utils/shuffleArray";
+import ApiHelper from "@/assets/db/data";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 interface PlayerState {
@@ -10,14 +9,14 @@ interface PlayerState {
 interface GameState {
   status: "start" | "create" | "play" | "finish";
   levels: number[];
-  currentLevel: number;
+  currentIndexOfLevel: number;
   players: { [key: string]: number[] };
 }
 
 const initialState: GameState = {
   status: "start",
   levels: [],
-  currentLevel: 0,
+  currentIndexOfLevel: 0,
   players: {},
 };
 
@@ -26,14 +25,12 @@ const gameSlice = createSlice({
   initialState,
   reducers: {
     setStatus(state, action: PayloadAction<GameState["status"]>) {
-      state.status = action.payload
+      state.status = action.payload;
     },
     newGame(state) {
       state.status = "create";
-      state.currentLevel = 0;
-      state.levels = shuffleArray(
-        Array.from({ length: musicalPazzles.length }).map((_, index) => index)
-      );
+      state.currentIndexOfLevel = 0;
+      state.levels = ApiHelper.getShakeTasksID();
       state.players = {};
     },
 
@@ -46,8 +43,8 @@ const gameSlice = createSlice({
     },
 
     nextLevel(state) {
-      if (state.currentLevel < state.levels.length - 1) {
-        state.currentLevel = state.currentLevel + 1;
+      if (state.currentIndexOfLevel < state.levels.length - 1) {
+        state.currentIndexOfLevel = state.currentIndexOfLevel + 1;
       }
     },
 

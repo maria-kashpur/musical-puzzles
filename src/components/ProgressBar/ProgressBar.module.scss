@@ -1,0 +1,38 @@
+.wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.progress_box {
+  position: relative;
+  padding: 0px 3px;
+  min-height: 14px;
+  height: 100%;
+
+  width: 100%;
+  box-sizing: border-box;
+
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.202);
+  overflow: hidden;
+  background-color: #ffffff42;
+}
+
+.text {
+  font-size: 14px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  color: black;
+}
+
+.progress_line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: aquamarine;
+  border-radius: 10px;
+}

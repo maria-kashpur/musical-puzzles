@@ -71,3 +71,45 @@ body[data-theme="dark"] {
   --link-shadow-color:  #ffffff;
   --link-color: black;
 }
+
+
+@mixin btn ($color: #fff, $bg:#000000, $color__hover: rgb(229, 255, 32)) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  
+  min-width: 150px;
+  min-height: 80px;
+  padding: 10px;
+  box-sizing: border-box;
+
+  background-color: $bg;
+  color: $color;
+
+  border: #fff 1px solid; 
+  border-radius: 10px;
+
+  font-size: 1.4rem;
+  
+  box-shadow: 3px 3px 10px rgb(0, 0, 0);
+  text-transform: uppercase;
+
+  transition: 0.3s ease;
+
+  &:hover {
+    box-shadow: 3px 3px 10px $color__hover;
+    color: $color__hover;
+  }
+
+  &:disabled {
+    pointer-events: none;
+    color: gray;
+    border-color: gray;
+
+    & > svg path {
+      fill: gray;
+    }
+  }
+}

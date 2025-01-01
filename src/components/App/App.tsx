@@ -27,7 +27,7 @@ function App() {
         </nav>
       </header>
       <main className="conteiner">
-        <Game></Game>
+        <Game/>
       </main>
       <footer className="footer">
         <a href="https://github.com/maria-kashpur" target="_blank">

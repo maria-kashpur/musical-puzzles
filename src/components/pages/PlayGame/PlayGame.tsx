@@ -1,16 +1,37 @@
-import Question from './Question/Question';
-import Answer from './Answer/Answer';
-import Resut from './Result/Resut';
-import Slider from '@/components/Slider/Slider';
+import s from "./PlayGame.module.scss";
+
+import ApiHelper from "@/assets/db/data";
+import Resut from "./Resut";
+import ProgressBar from "@/components/ProgressBar/ProgressBar";
+import Answer from "./Answer";
+import Question from "./Question";
+import ControlPanel from "./ControlPanel/ControlPanel";
+import useGame from "@/hooks/useGame";
+
+
 
 export default function PlayGame() {
+  const { numOfLevels, currentLevel, isShowAnswer, isShowResult } = useGame();
+
+  const task = ApiHelper.getTask(1);
+
   return (
-      <Slider
-        amountSlides={3}
-        content={[
-          <Question />,
-          <Answer />,
-          <Resut />,
-        ]}></Slider>
+    <div className={s.wrap}>
+      <ProgressBar done={currentLevel} all={numOfLevels} unit="%" showValue={true} />
+
+      <ControlPanel />
+
+      <div className={s.board}>
+        <Resut isShow={isShowResult} />
+
+        <Answer
+          isShow={isShowAnswer}
+          videoSrc={task.video}
+          title={task.answer}
+        />
+
+        <Question imgSrc={task.task} isShow={true} />
+      </div>
+    </div>
   );
 }

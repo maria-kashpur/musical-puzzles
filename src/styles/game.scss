@@ -13,26 +13,6 @@
   min-height: 400px;
 }
 
-.btn {
-  display: flex;
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
-  min-width: 150px;
-  min-height: 80px;
-  background-color: black;
-  border-radius: 10px;
-  font-size: 1.4rem;
-  padding: 10px;
-  border: white 1px solid;
-  box-shadow: 3px 3px 10px rgb(0, 0, 0);
-  text-transform: uppercase;
-  &:hover {
-    box-shadow: 3px 3px 10px rgb(253, 255, 154);
-    color: rgb(229, 255, 32);
-  }
-}
-
 .title {
   font-size: 2.5rem;
   text-align: center;

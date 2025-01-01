@@ -19,7 +19,7 @@ export default function Game() {
     isUnfinishGame
       ? dispatch(setStatus("start"))
       : dispatch(setStatus("create"));
-  }, []);
+  }, [dispatch, players]);
 
 
   return status === "create" ? (
