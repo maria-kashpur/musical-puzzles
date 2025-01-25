@@ -14,7 +14,7 @@ export default function Player({title}: Props) {
 
   useEffect(() => {
     setIsWin(players[title].includes(currentLevel));
-  })
+  }, [])
 
   const toggleRange = () => {
     if (isWin) {
