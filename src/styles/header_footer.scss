@@ -60,3 +60,9 @@ h1 {
     box-shadow: none;
   }
 }
+
+a.btn-header {
+  &:hover {
+    color: black;
+  }
+}

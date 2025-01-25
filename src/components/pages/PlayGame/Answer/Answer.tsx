@@ -1,21 +1,19 @@
 import { useAppSelector } from "@/utils/store/store";
 import s from "./answer.module.scss";
-import db from "@/assets/db/musical-puzzles";
-
+import ApiHelper from "@/assets/db/data";
 
 export default function Answer() {
-  const { currentLevel } = useAppSelector(
-    (state) => state.game
-  );
+  const { currentLevel, levels } = useAppSelector((state) => state.game);
+  const data = ApiHelper.getTask(levels[currentLevel]);
+
   return (
     <div className={s.answer}>
-      <h2 className="title">{db[currentLevel].answer.title}</h2>
+      <h2 className="title">{data.answer}</h2>
       <video
-        src={db[currentLevel].answer.source}
+        src={data.video}
         className={s.video}
         controls
-        width="600"
-        ></video>
+        width="600"></video>
     </div>
   );
 }

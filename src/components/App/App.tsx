@@ -24,6 +24,9 @@ function App() {
             onClick={() => dispatch(newGame())}>
             Новая игра
           </button>
+          <a href="./Muz-puz_info.docx" className={`btn-header`} download={true}>
+            Файл для ведущего
+          </a>
         </nav>
       </header>
       <main className="conteiner">

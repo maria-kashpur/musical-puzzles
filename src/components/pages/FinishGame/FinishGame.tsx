@@ -13,10 +13,12 @@ export default function FinishGame() {
 
   const results = Object.entries(players).map((el) => {
     const [title, wins] = el;
-    const score = wins.length
+    const score = wins.length;
+
     if (maxResult < score) {
       maxResult = score
     }
+    
     return [title, score]
   })
 

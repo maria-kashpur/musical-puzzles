@@ -1,5 +1,4 @@
-import musicalPazzles from "@/assets/db/musical-puzzles";
-import shuffleArray from "@/utils/shuffleArray";
+import ApiHelper, { Pazzle } from "@/assets/db/data";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 interface PlayerState {
@@ -9,7 +8,8 @@ interface PlayerState {
 
 interface GameState {
   status: "start" | "create" | "play" | "finish";
-  levels: number[];
+  levels: Pazzle["id"][];
+  hideLevels: Pazzle["id"][];
   currentLevel: number;
   players: { [key: string]: number[] };
 }
@@ -17,6 +17,7 @@ interface GameState {
 const initialState: GameState = {
   status: "start",
   levels: [],
+  hideLevels: [],
   currentLevel: 0,
   players: {},
 };
@@ -26,23 +27,61 @@ const gameSlice = createSlice({
   initialState,
   reducers: {
     setStatus(state, action: PayloadAction<GameState["status"]>) {
-      state.status = action.payload
+      state.status = action.payload;
     },
+
     newGame(state) {
       state.status = "create";
       state.currentLevel = 0;
-      state.levels = shuffleArray(
-        Array.from({ length: musicalPazzles.length }).map((_, index) => index)
-      );
+      state.levels = ApiHelper.getShakeTasksID();
       state.players = {};
     },
 
     addPlayer(state, action: PayloadAction<string>) {
-      state.players[action.payload] = [];
+      const name = action.payload;
+
+      state.players[name] = [];
+    },
+
+    setShowingLevels(
+      state,
+      action: PayloadAction<Pazzle["id"]>
+    ) {
+      const id = action.payload;
+      const actionType = state.hideLevels.includes(id) ? "show" : "hide"
+
+      switch (actionType) {
+        case "show":
+          state.hideLevels = state.hideLevels.filter((el) => el !== id);
+          break;
+        case "hide":
+          state.hideLevels = [...state.hideLevels, id];
+          break;
+        default:
+          break;
+      }
+    },
+    resetHideLevels (state) {
+      state.hideLevels = []
     },
 
     deletePlayer(state, action: PayloadAction<PlayerState["title"]>) {
-      delete state.players[action.payload];
+      const name = action.payload;
+
+      const players = {...state.players};
+
+      if (name in players) {
+        delete players[name];
+      }
+
+      state.players = players;
+    },
+
+    startGame(state) {
+
+      state.status = "play"
+
+      state.levels = state.levels.filter((level) => !state.hideLevels.includes(level))
     },
 
     nextLevel(state) {
@@ -84,12 +123,15 @@ const gameSlice = createSlice({
 
 export const {
   newGame,
+  startGame,
   addPlayer,
   deletePlayer,
   addWin,
   deleteWin,
   nextLevel,
   setStatus,
+  setShowingLevels,
+  resetHideLevels,
 } = gameSlice.actions;
 
 export default gameSlice.reducer;
